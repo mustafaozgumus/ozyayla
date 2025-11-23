@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Özyayla İlk-Ortaokulu Bilgi Ekranı</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <style>
+      :root {
+        --red: #e50914;
+        --red-soft: #fb7185;
+        --bg: #020617;
+        --text: #f9fafb;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      
+      /* Original Floating Background */
+      .bg-animated {
+        position: fixed;
+        inset: -20%;
+        background:
+          radial-gradient(circle at 0% 0%, rgba(239,68,68,0.32), transparent 60%),
+          radial-gradient(circle at 100% 100%, rgba(59,130,246,0.38), transparent 60%),
+          radial-gradient(circle at 0% 100%, rgba(56,189,248,0.25), transparent 60%),
+          linear-gradient(135deg, #020617 0%, #020617 35%, #020617 100%);
+        filter: blur(28px);
+        opacity: 0.95;
+        z-index: -3;
+        animation: floatBg 28s ease-in-out infinite alternate;
+      }
+
+      .bg-noise {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+        mix-blend-mode: soft-light;
+        opacity: 0.35;
+        z-index: -2;
+      }
+
+      @keyframes floatBg {
+        0% { transform: translate3d(-20px,-10px,0) scale(1.02); }
+        50% { transform: translate3d(15px,20px,0) scale(1.06); }
+        100% { transform: translate3d(-10px,10px,0) scale(1.03); }
+      }
+      
+      /* Scrollbar hiding */
+      ::-webkit-scrollbar { width: 0; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "papaparse": "https://aistudiocdn.com/papaparse@^5.5.3"
+  }
+}
+</script>
+</head>
+  <body>
+    <div class="bg-animated"></div>
+    <div class="bg-noise"></div>
+    <div id="root"></div>
+  </body>
+</html>
